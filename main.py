@@ -5,6 +5,7 @@ from aiogram import Bot, Dispatcher
 from Models.configDB import init_db
 
 from Commands.base import base_router
+from Commands.ping import ping_router
 
 
 load_dotenv()
@@ -15,6 +16,7 @@ async def main():
     bot = Bot(token=token)
     dp = Dispatcher()
     dp.include_router(base_router)
+    dp.include_router(ping_router)
 
     await init_db()
     await bot.delete_webhook(drop_pending_updates=True)

@@ -1,6 +1,8 @@
 # Folders
 .venv/
 __pycache__/
+logs/
 
 # Files
 .env
+*.db

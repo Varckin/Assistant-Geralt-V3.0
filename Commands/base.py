@@ -8,7 +8,7 @@ from Models.configDB import async_session
 from sqlalchemy.future import select
 from Models.models import User
 from Logging.logger import get_logger
-
+from Localization.localozation import get_str
 
 load_dotenv()
 base_router = Router()
@@ -28,9 +28,11 @@ async def cmd_start(message: Message):
                             first_name=message.from_user.first_name, language_code=message.from_user.language_code)
                 session.add(user)
                 await session.commit()
-                await message.answer(text=f"Hello {message.from_user.first_name}")
+                text: str = await get_str(user_id=message.from_user.id, key_str="HelloNewUser")
+                await message.answer(text=text.format(first_name=message.from_user.first_name))
             else:
-                await message.answer(text=f"Welcome back {message.from_user.first_name}")
+                text: str = await get_str(user_id=message.from_user.id, key_str="HelloOldUser")
+                await message.answer(text=text.format(first_name=message.from_user.first_name))
     except Exception as e:
         logger.error(e)
 
@@ -38,15 +40,17 @@ async def cmd_start(message: Message):
 async def cmd_about(message: Message):
     version: str = os.getenv("VERSION_BOT")
     creator: str = os.getenv('CREATOR_BOT')
-    
-    await message.answer(text=f"Creator: {creator}\nVersion: {version}",
+    text: str = await get_str(user_id=message.from_user.id, key_str="About")
+    await message.answer(text=text.format(version=version, creator=creator),
                          parse_mode='Markdown')
 
 @base_router.message(Command("cancel"))
 async def cmd_cancel(message: Message, state: FSMContext):
     current_state = await state.get_state()
     if current_state is None:
-        await message.answer(text="No active state.")
+        text: str = await get_str(user_id=message.from_user.id, key_str="NoActiveState")
+        await message.answer(text=text)
     else:
         await state.clear()
-        await message.answer(text="Active operation canceled.")
+        text: str = await get_str(user_id=message.from_user.id, key_str="YesActiveState")
+        await message.answer(text=text)

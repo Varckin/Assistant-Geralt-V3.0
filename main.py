@@ -6,6 +6,7 @@ from Models.configDB import init_db
 
 from Commands.base import base_router
 from Commands.ping import ping_router
+from Commands.gallows import gallows_router
 
 
 load_dotenv()
@@ -17,6 +18,7 @@ async def main():
     dp = Dispatcher()
     dp.include_router(base_router)
     dp.include_router(ping_router)
+    dp.include_router(gallows_router)
 
     await init_db()
     await bot.delete_webhook(drop_pending_updates=True)

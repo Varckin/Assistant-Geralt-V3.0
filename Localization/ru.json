@@ -1,0 +1,4 @@
+{
+    "HelloNewUser":"Привет {first_name}!",
+    "HelloOldUser": "С возвращением {first_name}!"
+}

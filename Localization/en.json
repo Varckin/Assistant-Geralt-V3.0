@@ -1,0 +1,15 @@
+{
+    "HelloNewUser":"Hello {first_name}!",
+    "HelloOldUser": "Welcome back {first_name}!",
+    "About": "Creator: {creator}\nVersion: {version}",
+    "NoActiveState": "No active state.",
+    "YesActiveState": "Active operation canceled.",
+    
+    "gallowWordSelected": "Word selected.\nEnter a letter.\nGuessed: {guessed_word}\nAttempts: {tries}",
+    "gallowEnterOneLetter": "Enter one letter.\nGuessed: {guessed_word}",
+    "gallowAlreadyLetter": "This letter is already in the guessed word.\nGuessed: {guessed_word}",
+    "gallowCongratulation": "Congratulations! You won.\nThe guessed word: {guessed_word}",
+    "gallowRight": "Correct!\nGuessed: {guessed_word}",
+    "gallowLost": "You lost! The hidden word was: {selected_word}",
+    "gallowWrong": "Wrong!\nGuessed: {guessed_word}\nAttempts: {tries}"
+}

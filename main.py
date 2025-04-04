@@ -8,6 +8,7 @@ from Commands.base import base_router
 from Commands.ping import ping_router
 from Commands.gallows import gallows_router
 from Commands.utility import utility_router
+from Commands.voice import voice_router
 
 
 load_dotenv()
@@ -21,6 +22,7 @@ async def main():
     dp.include_router(ping_router)
     dp.include_router(gallows_router)
     dp.include_router(utility_router)
+    dp.include_router(voice_router)
 
     await init_db()
     await bot.delete_webhook(drop_pending_updates=True)

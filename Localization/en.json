@@ -13,5 +13,8 @@
     "gallowLost": "You lost! The hidden word was: {selected_word}",
     "gallowWrong": "Wrong!\nGuessed: {guessed_word}\nAttempts: {tries}",
 
-    "error": "Error, retry enter"
+    "error": "Error, retry enter",
+
+    "errPingCmd": "Error, Use: <cmd> <URL>",
+    "errPing": "Service not avalible"
 }

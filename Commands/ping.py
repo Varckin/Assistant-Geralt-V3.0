@@ -2,6 +2,7 @@ from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
 from PingService.pingService import PingService
+from Localization.localozation import get_str
 
 
 ping_router = Router()
@@ -13,4 +14,5 @@ async def cmd_ping(message: Message):
         ping = PingService(url)
         await message.reply(text=ping.ping())
     except ValueError:
-        await message.reply('Error, Use: <cmd> <URL>')
+        text = await get_str(message.from_user.id, 'errPingCmd')
+        await message.reply(text)

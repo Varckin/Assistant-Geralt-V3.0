@@ -1,4 +1,4 @@
-import requests
+import requests, re
 from Logging.logger import get_logger
 
 
@@ -9,15 +9,17 @@ class PingService:
         self.url: str = url
 
     def validator_url(self) -> None:
-        if "http://" not in self.url or "https://" not in self.url:
-            self.url = "http://" + self.url
+        if not self.url.startswith("http://") and not self.url.startswith("https://"):
+            self.url = "https://" + self.url
+        elif self.url.startswith("http://"):
+            self.url = re.sub('http://', 'https://', self.url)
 
     def ping(self) -> str:
         self.validator_url()
         try:
-            response = requests.get(url=self.url, timeout=5)
+            response = requests.get(url=f"{self.url}:443", timeout=5)
             return f"Status: {str(response.status_code)}"
 
         except requests.exceptions.RequestException as e:
             logger.error(e)
-            return "Error using"
+            return "Service not avalible"

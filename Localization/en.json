@@ -11,5 +11,7 @@
     "gallowCongratulation": "Congratulations! You won.\nThe guessed word: {guessed_word}",
     "gallowRight": "Correct!\nGuessed: {guessed_word}",
     "gallowLost": "You lost! The hidden word was: {selected_word}",
-    "gallowWrong": "Wrong!\nGuessed: {guessed_word}\nAttempts: {tries}"
+    "gallowWrong": "Wrong!\nGuessed: {guessed_word}\nAttempts: {tries}",
+
+    "error": "Error, retry enter"
 }

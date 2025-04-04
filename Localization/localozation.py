@@ -22,14 +22,17 @@ async def get_land(user_id: int) -> str:
         logger.error(e)
 
 async def get_str(user_id: int, key_str: str) -> str:
-    lang_code: str = await get_land(user_id)
-    if Path(f"{str(Path.cwd())}/Localization/{lang_code}.json").is_file():
-        localization: dict = await json_read(f"{str(Path.cwd())}/Localization/{lang_code}.json")
-        return localization.get(key_str)
-    else:
-        localization: dict = await json_read(f"{str(Path.cwd())}/Localization/en.json")
-        return localization.get(key_str)
-    
+    try:
+        lang_code: str = await get_land(user_id)
+        if Path(f"{str(Path.cwd())}/Localization/{lang_code}.json").is_file():
+            localization: dict = await json_read(f"{str(Path.cwd())}/Localization/{lang_code}.json")
+            return localization.get(key_str)
+        else:
+            localization: dict = await json_read(f"{str(Path.cwd())}/Localization/en.json")
+            return localization.get(key_str)
+    except (KeyError, FileNotFoundError) as e:
+        logger.critical(e)
+
 async def json_read(file_name: str) -> dict:
     with open(file_name, 'r', encoding='utf-8') as file:
         data: dict = load(file)

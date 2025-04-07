@@ -16,5 +16,13 @@
     "error": "Error, retry enter",
 
     "errPingCmd": "Error, Use: <cmd> <URL>",
-    "errPing": "Service not avalible"
+    "errPing": "Service not avalible",
+
+    "GenerationAI": "Generation.....",
+    "STTSend":"Send me voice....",
+    "STTRecongnized":"Recognized text:{text}\nLanguage: {language}",
+
+    "TTSChooseLang":"Choose lang",
+    "TTSNotSupLang":"Not support language!",
+    "TTSSend":"Send me text...."
 }

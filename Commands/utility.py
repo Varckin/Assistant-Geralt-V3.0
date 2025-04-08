@@ -61,3 +61,14 @@ async def cmd_genpass(message: Message):
         text = await get_str(message.from_user.id, 'error')
         await message.reply(text=text)
         logger.error(e)
+
+@utility_router.message(Command("me"))
+async def cmd_user_info(message:Message):
+    text: str = f"""
+Username: @{message.from_user.username}
+Id: `{message.from_user.id}`
+First: `{message.from_user.first_name}`
+Last: `{message.from_user.last_name}`
+Lang: `{message.from_user.language_code}`
+"""
+    await message.reply(text=text, parse_mode='MarkdownV2')

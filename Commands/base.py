@@ -25,7 +25,8 @@ async def cmd_start(message: Message):
 
             if not existing_user:                
                 user = User(user_id=message.from_user.id, username=message.from_user.username,
-                            first_name=message.from_user.first_name, language_code=message.from_user.language_code)
+                            first_name=message.from_user.first_name, language_code=message.from_user.language_code,
+                            premium=False)
                 session.add(user)
                 await session.commit()
                 text: str = await get_str(user_id=message.from_user.id, key_str="HelloNewUser")

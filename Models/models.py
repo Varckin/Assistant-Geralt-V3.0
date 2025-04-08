@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime, func
+from sqlalchemy import Column, Integer, String, DateTime, func, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -12,3 +12,4 @@ class User(Base):
     first_name = Column(String, nullable=True)
     language_code = Column(String, nullable=True)
     create_at = Column(DateTime, default=func.now(), nullable=False)
+    premium = Column(Boolean, nullable=False)

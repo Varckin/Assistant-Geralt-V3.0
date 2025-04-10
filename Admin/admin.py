@@ -1,4 +1,3 @@
-from dotenv import load_dotenv
 import os
 
 from Models.configDB import async_session
@@ -8,7 +7,6 @@ from Logging.logger import get_logger
 
 
 logger = get_logger(__name__)
-load_dotenv()
 
 class AdminPanel:
     def __init__(self):

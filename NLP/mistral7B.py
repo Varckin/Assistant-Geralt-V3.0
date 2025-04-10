@@ -1,10 +1,11 @@
 from llama_cpp import Llama
 from pathlib import Path
+import os
 
 class NLP:
     def __init__(self):
         self.model = Llama(
-            model_path=str(Path('NLP/model/mistral-7b-instruct-v0.1.Q4_K_M.gguf')),
+            model_path=str(Path(os.getenv('NLP_PATH'))),
             n_ctx=4096,
             n_threads=6,
             use_mlock=True

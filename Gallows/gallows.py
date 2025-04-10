@@ -1,10 +1,8 @@
 from Logging.logger import get_logger
-from dotenv import load_dotenv
 from random import choice
 import os
 
 
-load_dotenv()
 logger = get_logger(__name__)
 
 

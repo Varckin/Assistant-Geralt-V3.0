@@ -2,7 +2,6 @@ from aiogram import Router
 from aiogram.filters import Command
 from aiogram.types import Message
 from aiogram.fsm.context import FSMContext
-from dotenv import load_dotenv
 import os
 from Models.configDB import async_session
 from sqlalchemy.future import select
@@ -10,7 +9,7 @@ from Models.models import User
 from Logging.logger import get_logger
 from Localization.localozation import get_str
 
-load_dotenv()
+
 base_router = Router()
 logger = get_logger(__name__)
 

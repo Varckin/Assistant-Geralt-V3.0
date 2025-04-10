@@ -1,5 +1,4 @@
 import requests, os
-from dotenv import load_dotenv
 from Logging.logger import get_logger
 from pathlib import Path
 
@@ -9,7 +8,6 @@ from datetime import datetime
 
 
 logger = get_logger(__name__)
-load_dotenv()
 
 class Certificate:
     def __init__(self):

@@ -1,9 +1,6 @@
 import logging, os
 import logging.handlers
-from dotenv import load_dotenv
 
-
-load_dotenv()
 
 def get_logger(name: str):
     logger = logging.getLogger(name)

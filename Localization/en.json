@@ -24,5 +24,8 @@
 
     "TTSChooseLang":"Choose lang",
     "TTSNotSupLang":"Not support language!",
-    "TTSSend":"Send me text...."
+    "TTSSend":"Send me text....",
+
+    "helloYoutube":"Send me url for download.",
+    "downloadYoutube":"Wait...."
 }

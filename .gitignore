@@ -5,6 +5,7 @@ logs/
 tmp/
 model/
 .vscode/
+download_youtube/
 
 # Files
 .env

@@ -5,7 +5,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from Logging.logger import get_logger
 from Localization.localozation import get_str
-from YtDLP.youtube import Youtube
+from YtDLP.celery_tasks import download_and_send
 
 ytdlp_router = Router()
 logger = get_logger(__name__)
@@ -24,9 +24,8 @@ async def youtube_cmd(message: Message, state: FSMContext):
 
 @ytdlp_router.message(ytdlp_State.YoutubeMusicState)
 async def download(message: Message):
-    ytb = Youtube()
     text = await get_str(user_id=message.from_user.id,
                          key_str='downloadYoutube')
     await message.reply(text=text)
-    
-    await ytb.download_audio(url=message.text, message=message)
+
+    download_and_send.delay(message.text, message.chat.id)

@@ -11,7 +11,6 @@ from Commands.utility import utility_router
 from Commands.voice import voice_router
 from Commands.cert import cert_router
 from Commands.admin import admin_router
-from Commands.nlp import nlp_router
 from Commands.ytdlp import ytdlp_router
 
 
@@ -29,7 +28,6 @@ async def main():
     dp.include_router(voice_router)
     dp.include_router(cert_router)
     dp.include_router(admin_router)
-    dp.include_router(nlp_router)
     dp.include_router(ytdlp_router)
 
     await init_db()

@@ -22,11 +22,11 @@ async def send_files(files, chat_id):
             await bot.send_audio(chat_id=chat_id, audio=FSInputFile(path))
             await asyncio.sleep(5)
         except Exception as e:
-            await bot.send_message(chat_id=chat_id, text=f"Ошибка при отправке {path.name}: {e}")
+            await bot.send_message(chat_id=chat_id, text=f"Error sending {path.name}: {e}")
         finally:
             try:
                 path.unlink()
             except Exception as e:
-                print(f"Не удалось удалить {path}: {e}")
+                print(f"Failed to delete {path}: {e}")
 
     await bot.session.close()

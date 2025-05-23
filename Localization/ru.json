@@ -1,4 +1,31 @@
 {
-    "HelloNewUser":"Привет {first_name}!",
-    "HelloOldUser": "С возвращением {first_name}!"
+    "HelloNewUser": "Привет, {first_name}!",
+    "HelloOldUser": "С возвращением, {first_name}!",
+    "About": "Создатель: {creator}\nВерсия: {version}",
+    "NoActiveState": "Нет активного состояния.",
+    "YesActiveState": "Активная операция отменена.",
+    
+    "gallowWordSelected": "Слово выбрано.\nВведите букву.\nУгадано: {guessed_word}\nПопытки: {tries}",
+    "gallowEnterOneLetter": "Введите одну букву.\nУгадано: {guessed_word}",
+    "gallowAlreadyLetter": "Эта буква уже есть в угаданном слове.\nУгадано: {guessed_word}",
+    "gallowCongratulation": "Поздравляем! Вы победили.\nЗагаданное слово: {guessed_word}",
+    "gallowRight": "Верно!\nУгадано: {guessed_word}",
+    "gallowLost": "Вы проиграли! Загаданное слово было: {selected_word}",
+    "gallowWrong": "Неверно!\nУгадано: {guessed_word}\nПопытки: {tries}",
+
+    "error": "Ошибка, повторите ввод",
+
+    "errPingCmd": "Ошибка, используйте: <cmd> <URL>",
+    "errPing": "Сервис недоступен",
+
+    "GenerationAI": "Генерация.....",
+    "STTSend": "Отправьте мне голосовое сообщение....",
+    "STTRecongnized": "Распознанный текст: {text}\nЯзык: {language}",
+
+    "TTSChooseLang": "Выберите язык",
+    "TTSNotSupLang": "Язык не поддерживается!",
+    "TTSSend": "Отправьте мне текст....",
+
+    "helloYoutube": "Отправьте мне ссылку для скачивания.",
+    "downloadYoutube": "Подождите...."
 }

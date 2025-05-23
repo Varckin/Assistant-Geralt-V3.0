@@ -18,6 +18,8 @@ services:
     build: .
     container_name: celery_worker
     command: celery -A celery_conf worker --loglevel=info
+    volumes:
+      - ./download_youtube:/app/download_youtube
     depends_on:
       - redis
     env_file:

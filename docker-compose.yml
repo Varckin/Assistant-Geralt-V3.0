@@ -1,10 +1,14 @@
-version: '3.8'
-
 services:
-  bot:
+  geralt:
     build: .
-    container_name: telegram_bot
+    container_name: geralt_bot
+    command: python3 main.py
     restart: unless-stopped
+    volumes:
+      - ./database.db:/app/database.db
+      - ./Logging/logs:/app/Logging/logs
+      - ./download_youtube:/app/download_youtube
+      - ./tmp:/app/tmp
     depends_on:
       - redis
     env_file:

@@ -11,3 +11,9 @@ celery_app.conf.update(
     result_serializer='json',
     accept_content=['json'],
 )
+
+celery_app.autodiscover_tasks(
+    packages=['YtDLP'],
+    related_name='celery_tasks',
+    force=True
+)

@@ -26,6 +26,7 @@ class Youtube:
             ],
             "quiet": True,
             "no_warnings": True,
+            "ignoreerrors": True,
         }
         
         with YoutubeDL(ydl_opts) as ydl:

@@ -10,14 +10,14 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 @celery_app.task
 def download_youtube(url: str, chat_id: int):
-    youtube = Youtube()
+    youtube = Youtube(id=chat_id)
     new_files = youtube.download_audio(url)
 
     asyncio.run(send_files(new_files, chat_id))
 
 @celery_app.task
 def download_soundcloud(url: str, chat_id: int):
-    soundcloud = SoundCloud()
+    soundcloud = SoundCloud(id=chat_id)
     new_files = soundcloud.download_audio(url)
 
     asyncio.run(send_files(new_files, chat_id))

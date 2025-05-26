@@ -6,8 +6,9 @@ logger = get_logger(__name__)
 
 
 class SoundCloud:
-    def __init__(self):
-        self.DOWNLOAD_DIR = Path('download_soundcloud').resolve()
+    def __init__(self, id: int):
+        self.id_user = str(id)
+        self.DOWNLOAD_DIR = Path(f'download_soundcloud/{self.id_user}').resolve()
         self.DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
     def download_audio(self, url: str):

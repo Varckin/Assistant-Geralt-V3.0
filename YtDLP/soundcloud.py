@@ -5,9 +5,9 @@ from Logging.logger import get_logger
 logger = get_logger(__name__)
 
 
-class Youtube:
+class SoundCloud:
     def __init__(self):
-        self.DOWNLOAD_DIR = Path('download_youtube').resolve()
+        self.DOWNLOAD_DIR = Path('download_soundcloud').resolve()
         self.DOWNLOAD_DIR.mkdir(parents=True, exist_ok=True)
 
     def download_audio(self, url: str):
@@ -27,12 +27,20 @@ class Youtube:
             "quiet": True,
             "no_warnings": True,
             "ignoreerrors": True,
+            "cachedir": False,
+            "noplaylist": False,
         }
-        
-        with YoutubeDL(ydl_opts) as ydl:
-            ydl.download([url])
+
+        try:
+            with YoutubeDL(ydl_opts) as ydl:
+                ydl.download([url])
+        except Exception:
+            return []
 
         after_files = set(self.DOWNLOAD_DIR.glob('*.m4a'))
         new_files = list(after_files - before_files)
+
+        if not new_files:
+            logger.warning("Could not find new files after upload.")
 
         return new_files

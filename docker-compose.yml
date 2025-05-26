@@ -8,6 +8,7 @@ services:
       - ./database.db:/app/database.db
       - ./Logging/logs:/app/Logging/logs
       - ./download_youtube:/app/download_youtube
+      - ./download_soundcloud:/app/download_soundcloud
       - ./tmp:/app/tmp
     depends_on:
       - redis
@@ -20,6 +21,7 @@ services:
     command: celery -A celery_conf worker --loglevel=info
     volumes:
       - ./download_youtube:/app/download_youtube
+      - ./download_soundcloud:/app/download_soundcloud
     depends_on:
       - redis
     env_file:

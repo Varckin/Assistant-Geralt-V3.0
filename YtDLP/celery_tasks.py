@@ -2,15 +2,23 @@ from celery_conf import celery_app
 from aiogram import Bot
 from aiogram.types import FSInputFile
 from .youtube import Youtube
+from .soundcloud import SoundCloud
 import os
 import asyncio
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 @celery_app.task
-def download_and_send(url: str, chat_id: int):
+def download_youtube(url: str, chat_id: int):
     youtube = Youtube()
     new_files = youtube.download_audio(url)
+
+    asyncio.run(send_files(new_files, chat_id))
+
+@celery_app.task
+def download_soundcloud(url: str, chat_id: int):
+    soundcloud = SoundCloud()
+    new_files = soundcloud.download_audio(url)
 
     asyncio.run(send_files(new_files, chat_id))
 

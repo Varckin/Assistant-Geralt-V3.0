@@ -10,3 +10,4 @@ download_youtube/
 # Files
 .env
 *.db
+cookies.txt

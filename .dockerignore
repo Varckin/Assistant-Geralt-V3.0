@@ -8,3 +8,4 @@ download_youtube/
 
 .env
 *.db
+cookies.txt

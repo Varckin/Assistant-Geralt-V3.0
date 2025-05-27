@@ -65,7 +65,7 @@ async def down_insta(message: Message):
     file = insta.download(message.text)
 
     if file:
-        await message.reply_video(document=FSInputFile(file))
+        await message.reply_video(video=FSInputFile(file))
         file.unlink()
     else:
         await message.answer(text="Error")

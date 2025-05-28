@@ -15,6 +15,7 @@ class Youtube:
         before_files = set(self.DOWNLOAD_DIR.glob('*.m4a'))
 
         ydl_opts = {
+            'cookiefile': str(Path('youtube_cookies.txt')),
             "format": "bestaudio/best",
             "outtmpl": str(self.DOWNLOAD_DIR / "%(title)s.%(ext)s"),
             "postprocessors": [

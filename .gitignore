@@ -10,4 +10,5 @@ download_youtube/
 # Files
 .env
 *.db
-cookies.txt
+insta_cookies.txt
+youtube_cookies.txt

@@ -6,7 +6,8 @@ services:
     restart: unless-stopped
     volumes:
       - ./database.db:/app/database.db
-      - ./cookies.txt:/app/cookies.txt
+      - ./insta_cookies.txt:/app/insta_cookies.txt
+      - ./youtube_cookies.txt:/app/youtube_cookies.txt
       - ./Logging/logs:/app/Logging/logs
       - ./download_youtube:/app/download_youtube
       - ./download_soundcloud:/app/download_soundcloud

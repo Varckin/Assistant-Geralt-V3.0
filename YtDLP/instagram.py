@@ -19,7 +19,7 @@ class Instagram:
         output_path = self.DOWNLOAD_DIR / f"{filename_prefix}.mp4"
 
         ydl_opts = {
-            'cookiefile': str(Path('cookies.txt')),
+            'cookiefile': str(Path('insta_cookies.txt')),
             'outtmpl': str(output_path),
             'format': 'mp4/best',
             'quiet': True,

@@ -21,6 +21,7 @@ services:
   celery:
     build: .
     container_name: celery_worker
+    restart: unless-stopped
     command: celery -A celery_conf worker --loglevel=info
     volumes:
       - ./download_youtube:/app/download_youtube
@@ -32,6 +33,7 @@ services:
 
   redis:
     image: redis:7
+    restart: unless-stopped
     container_name: redis
     ports:
       - "6379:6379"
